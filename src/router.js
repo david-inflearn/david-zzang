@@ -49,6 +49,15 @@ const router = new Router({
           redirect: '/dashboard/analytics'
         },
         {
+          path: '/dashboard/test',
+          name: 'dashboard-test',
+          component: () => import('./views/pages/Test.vue'),
+          meta: {
+            rule: 'editor',
+            authRequired : true
+          }
+        },
+        {
           path: '/dashboard/analytics',
           name: 'dashboard-analytics',
           component: () => import('./views/DashboardAnalytics.vue'),
@@ -1307,7 +1316,8 @@ const router = new Router({
           name: 'page-login',
           component: () => import('@/views/pages/login/Login.vue'),
           meta: {
-            rule: 'editor'
+            rule: 'editor',
+            authRequired : false
           }
         },
         {
@@ -1315,7 +1325,8 @@ const router = new Router({
           name: 'page-register',
           component: () => import('@/views/pages/register/Register.vue'),
           meta: {
-            rule: 'editor'
+            rule: 'editor',
+            authRequired : false
           }
         },
         {
@@ -1407,16 +1418,10 @@ router.beforeEach((to, from, next) => {
     const firebaseCurrentUser = firebase.auth().currentUser
 
     // if (
-    //     to.path === "/pages/login" ||
-    //     to.path === "/pages/forgot-password" ||
-    //     to.path === "/pages/error-404" ||
-    //     to.path === "/pages/error-500" ||
-    //     to.path === "/pages/register" ||
-    //     to.path === "/callback" ||
-    //     to.path === "/pages/comingsoon" ||
+    //     to.path === "/pages/login" 
     //     (auth.isAuthenticated() || firebaseCurrentUser)
     // ) {
-    //     return next();
+    //     return next('/');
     // }
 
     // If auth required, check login. If login fails redirect to login page

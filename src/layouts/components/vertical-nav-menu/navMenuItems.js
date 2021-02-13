@@ -659,14 +659,14 @@ export default [
             name: 'Login',
             slug: 'pages-login',
             i18n: 'Login',
-            target: '_blank'
+            target: '_self'
           },
           {
             url: '/pages/register',
             name: 'Register',
             slug: 'pages-register',
             i18n: 'Register',
-            target: '_blank'
+            target: '_self'
           },
           {
             url: '/pages/forgot-password',

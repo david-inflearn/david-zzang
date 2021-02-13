@@ -1,12 +1,3 @@
-<!-- =========================================================================================
-    File Name: Register.vue
-    Description: Register Page
-    ----------------------------------------------------------------------------------------
-    Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
-      Author: Pixinvent
-    Author URL: http://www.themeforest.net/user/pixinvent
-========================================================================================== -->
-
 
 <template>
     <div class="h-screen flex w-full bg-img vx-row no-gutter items-center justify-center">
@@ -24,17 +15,11 @@
                                     <p>Fill the below form to create a new account.</p>
                                 </div>
                                 <vs-tabs>
-                                  <vs-tab label="JWT">
-                                    <register-jwt></register-jwt>
-                                  </vs-tab>
-
+      
                                   <vs-tab label="Firebase">
                                     <register-firebase></register-firebase>
                                   </vs-tab>
 
-                                  <vs-tab label="Auth0">
-                                    <register-auth0></register-auth0>
-                                  </vs-tab>
                                 </vs-tabs>
                             </div>
                         </div>
