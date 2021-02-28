@@ -7,7 +7,7 @@
 이 소스는 수강자에게만 무료 배포 되는 소스 입니다.
 수강자가 아닌 자가 해당 소스를 사용하는 경우 라이센스에 위반이 됩니다.
 
-## Code Samples
+## Code Explain
 
 ```vue
 # src / auth : 로그인 세션 관리 하는 소스
@@ -26,3 +26,6 @@ sudo yarn install
 yarn run serve
 http://localhost:8080/
 ```
+
+## License
+[인프런](https://www.inflearn.com/)
