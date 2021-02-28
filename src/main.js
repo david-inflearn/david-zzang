@@ -18,6 +18,10 @@ import 'vuesax/dist/vuesax.css' // Vuesax
 Vue.use(Vuesax)
 
 
+
+import Antd from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.css';
+Vue.use(Antd)
 // axios
 import axios from './axios.js'
 Vue.prototype.$http = axios
