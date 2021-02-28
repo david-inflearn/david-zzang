@@ -3,9 +3,9 @@
     Description: list Component
     Component Name: VxList
     ----------------------------------------------------------------------------------------
-    Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
-      Author: Pixinvent
-    Author URL: http://www.themeforest.net/user/pixinvent
+    Item Name: Education Template
+    Author: David
+    Author URL: https://www.notion.so/I-m-Different-I-m-David-babd4579585441d684888acd0a5ca8f8
 ========================================================================================== -->
 
 
