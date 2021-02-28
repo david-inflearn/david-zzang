@@ -21,12 +21,16 @@ module.exports = {
         chunks: 'all'
       }
     }
-  }
-  // devServer: {
-  //   overlay: {
-  //     warnings: true,
-  //     errors: true
-  //   }
-  // }
+  },
+  pwa: {
+    name: "david",
+    themeColor: "#66615B",
+    msTileColor: "#66615B",
+    appleMobileWebAppCapable: "yes",
+    appleMobileWebAppStatusBarStyle: "#66615B",
+    workboxOptions: {
+      skipWaiting: true
+    }
+  },
 }
 
