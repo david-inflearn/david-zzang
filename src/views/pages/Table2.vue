@@ -127,12 +127,10 @@ export default {
         this.handleRemove(file);
         return;
       } else {
-        // var img = new Image();
         var reader = new FileReader();
         var vm = this;
 
         reader.onload = function (e) {
-          // vm.image = e.target.result;
           vm.saveToFirebaseStorage(e, file, idx);
         };
         reader.readAsDataURL(file);
@@ -186,8 +184,6 @@ export default {
       var db = firebase.firestore();
       var _ref = db.collection("bbs").doc(this.key);
       var self = this;
-
-      // Set the "capital" field of the city 'DC'
       _ref
         .update({
           name: self.name,
@@ -200,7 +196,6 @@ export default {
           console.log("Document successfully updated!");
         })
         .catch((error) => {
-          // The document probably doesn't exist.
           console.error("Error updating document: ", error);
         });
     },
