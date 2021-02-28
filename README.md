@@ -7,19 +7,25 @@
 이 소스는 수강자에게만 무료 배포 되는 소스 입니다.
 수강자가 아닌 자가 해당 소스를 사용하는 경우 라이센스에 위반이 됩니다.
 
-## Code Samples
+## Code Explain
 
-> 
-src / auth : 로그인 세션 관리 하느 ㄴ소스
-src / components : 외부 컴포넌트 이지만 해당 컴포넌트는 사용하지 않고 antd를 import해서 사용함
-src / i18n : 사이트내 다국어 제어 관련 소스
-src / store : 강의에서 다루지 않은 Vuex 처리 예제, 사용을 하고자 하는 경우 store/auth/ 디렉토리를 참고하면 됩.
-src / views / pages : 강의에서 다룬 페이 관련 소스
-src / main.js : 새로운 모듈 추가시 수정되어야 되는 소스
-src / router.js : 새로운 페이지가 추가시 수정되어야 되는 소스
+```vue
+# src / auth : 로그인 세션 관리 하는 소스
+# src / components : 외부 컴포넌트 이지만 해당 컴포넌트는 사용하지 않고 antd를 import해서 사용함
+# src / i18n : 사이트내 다국어 제어 관련 소스
+# src / store : 강의에서 다루지 않은 Vuex 처리 예제, 사용을 하고자 하는 경우 store/auth/ 디렉토리를 참고하면 됩.
+# src / views / pages : 강의에서 다룬 페이 관련 소스
+# src / main.js : 새로운 모듈 추가시 수정되어야 되는 소스
+# src / router.js : 새로운 페이지가 추가시 수정되어야 되는 소스
+```
 
 ## Installation
 
-> sudo yarn install
-> yarn run serve
-> http://localhost:8080/
+```bash
+sudo yarn install
+yarn run serve
+http://localhost:8080/
+```
+
+## License
+[인프런](https://www.inflearn.com/)
