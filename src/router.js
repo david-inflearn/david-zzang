@@ -62,7 +62,8 @@ const router = new Router({
           name: 'dashboard-analytics',
           component: () => import('./views/DashboardAnalytics.vue'),
           meta: {
-            rule: 'editor'
+            rule: 'editor',
+            authRequired : true
           }
         },
         {
@@ -384,11 +385,26 @@ const router = new Router({
           name: 'table',
           component: () => import('./views/ui-elements/table/Table.vue'),
           meta: {
+            authRequired:true,
             breadcrumb: [
               { title: 'Home', url: '/' },
               { title: 'Table', active: true }
             ],
-            pageTitle: 'Table',
+            pageTitle: 'Table 테스트',
+            rule: 'editor'
+          }
+        },
+        {
+          path: '/ui-elements/table2',
+          name: 'table2',
+          component: () => import('./views/pages/Table2.vue'),
+          meta: {
+            authRequired:true,
+            breadcrumb: [
+              { title: 'Home', url: '/' },
+              { title: 'Table', active: true }
+            ],
+            pageTitle: 'Table 테스트',
             rule: 'editor'
           }
         },
