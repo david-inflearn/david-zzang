@@ -11,9 +11,9 @@
                       pageTitle => Display title besides breadcrumb
                     }
   ----------------------------------------------------------------------------------------
-  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
-  Author: Pixinvent
-  Author URL: http://www.themeforest.net/user/pixinvent
+  Item Name: Education Template
+  Author: David
+  Author URL: https://www.notion.so/I-m-Different-I-m-David-babd4579585441d684888acd0a5ca8f8
 ==========================================================================================*/
 
 
@@ -62,7 +62,8 @@ const router = new Router({
           name: 'dashboard-analytics',
           component: () => import('./views/DashboardAnalytics.vue'),
           meta: {
-            rule: 'editor'
+            rule: 'editor',
+            authRequired : true
           }
         },
         {
@@ -384,11 +385,26 @@ const router = new Router({
           name: 'table',
           component: () => import('./views/ui-elements/table/Table.vue'),
           meta: {
+            authRequired:true,
             breadcrumb: [
               { title: 'Home', url: '/' },
               { title: 'Table', active: true }
             ],
-            pageTitle: 'Table',
+            pageTitle: 'Table 테스트',
+            rule: 'editor'
+          }
+        },
+        {
+          path: '/ui-elements/table2',
+          name: 'table2',
+          component: () => import('./views/pages/Table2.vue'),
+          meta: {
+            authRequired:true,
+            breadcrumb: [
+              { title: 'Home', url: '/' },
+              { title: 'Table', active: true }
+            ],
+            pageTitle: 'Table 테스트',
             rule: 'editor'
           }
         },

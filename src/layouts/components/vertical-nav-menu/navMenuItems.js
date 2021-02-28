@@ -13,9 +13,9 @@
                 NOTE: Submenu don't have any icon(you can add icon if u want to display)
           isDisabled  => disable sidebar item/group
   ----------------------------------------------------------------------------------------
-  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
-  Author: Pixinvent
-  Author URL: http://www.themeforest.net/user/pixinvent
+  Item Name: Education Template
+  Author: David
+  Author URL: https://www.notion.so/I-m-Different-I-m-David-babd4579585441d684888acd0a5ca8f8
 ==========================================================================================*/
 
 
@@ -591,6 +591,13 @@ export default [
         slug: 'table',
         icon: 'GridIcon',
         i18n: 'Table'
+      },
+      {
+        url: '/ui-elements/table2',
+        name: 'Table2',
+        slug: 'table2',
+        icon: 'GridIcon',
+        i18n: 'Table2'
       },
       {
         url: '/ui-elements/ag-grid-table',

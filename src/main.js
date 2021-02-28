@@ -2,9 +2,9 @@
   File Name: main.js
   Description: main vue(js) file
   ----------------------------------------------------------------------------------------
-  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
-  Author: Pixinvent
-  Author URL: http://www.themeforest.net/user/pixinvent
+  Item Name: Education Template
+  Author: David
+  Author URL: https://www.notion.so/I-m-Different-I-m-David-babd4579585441d684888acd0a5ca8f8
 ==========================================================================================*/
 
 
@@ -18,6 +18,10 @@ import 'vuesax/dist/vuesax.css' // Vuesax
 Vue.use(Vuesax)
 
 
+
+import Antd from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.css';
+Vue.use(Antd)
 // axios
 import axios from './axios.js'
 Vue.prototype.$http = axios
