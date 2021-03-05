@@ -23,24 +23,17 @@ import { register } from "register-service-worker";
     },
     updated() {
       console.log("New content is available; please refresh.");
-      $.confirm({
+       $.confirm({
         theme: "supervan", // 'material', 'bootstrap'
         title: "새 버젼 릴리즈",
-        content: "업데이트를 진행하시겠습니까?",
+        content: "업데이트가 필요합니다.",
         buttons: {
           confirm: {
-            text: '네',
+            text: '네, 지금 새로 고침 합니다.',
             btnClass: 'btn-blue',
             keys: ['enter', 'shift'],
             action: function() {
-              location.reload();
-            }
-          },
-          cancel: {
-            text: '아니오',
-            keys: ['enter', 'shift'],
-            action: function() {
-              //ignoe
+              location.reload(true);
             }
           }
         }
