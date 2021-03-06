@@ -20,7 +20,7 @@
     "chart.js": "^2.8.0",
     "core-js": "2.6.5",
     "echarts": "^4.2.1",
-    "file-saver": "2.0.1",
+    "file-saver": "^2.0.5",
     "firebase": "8.2.9",
     "instantsearch.css": "^7.3.1",
     "jsonwebtoken": "^8.5.1",
@@ -29,6 +29,7 @@
     "postcss-rtl": "^1.5.0",
     "prismjs": "^1.16.0",
     "register-service-worker": "^1.7.2",
+    "v-lazy-image": "^1.4.0",
     "vee-validate": "^2.2.8",
     "vue": "^2.6.10",
     "vue-acl": "4.1.10",
@@ -38,6 +39,7 @@
     "vue-chartjs": "^3.4.2",
     "vue-clipboard2": "^0.3.0",
     "vue-context": "4.0.0",
+    "vue-cookies": "^1.7.4",
     "vue-echarts": "^4.0.3",
     "vue-feather-icons": "^5.0.0",
     "vue-flatpickr-component": "^8.1.2",
@@ -64,7 +66,7 @@
     "vuejs-datepicker": "^1.5.4",
     "vuesax": "jd-0001/vuesax",
     "vuex": "^3.1.1",
-    "xlsx": "^0.15.0"
+    "xlsx": "^0.16.9"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^1.2.0",

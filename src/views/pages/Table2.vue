@@ -10,10 +10,17 @@
 
 <template>
   <div>
+    <v-lazy-image class="lazy"
+      src="https://firebasestorage.googleapis.com/v0/b/david-zzang-vue.appspot.com/o/beautiful_mac_wallpapers_025.jpg?alt=media&token=caa10060-28a4-434b-82f6-eb712036e1bf"
+    />
     <vx-card title="테이블 테스트">
       <a-table :columns="columns" :data-source="data">
-         <template slot="img" slot-scope="record">
-         <img v-if="record.img" :src="record.img" style="width:50px;height:50px"/>
+        <template slot="img" slot-scope="record">
+          <img
+            v-if="record.img"
+            :src="record.img"
+            style="width: 50px; height: 50px"
+          />
         </template>
         <template slot="operation" slot-scope="record">
           <button @click="() => edit(record)">선택</button>
@@ -21,6 +28,17 @@
       </a-table>
     </vx-card>
 
+    <div>
+      <upload-excel-component
+        :on-success="handleSuccess"
+        :before-upload="beforeUploadExcel"
+      />
+    </div>
+    <div>
+      <a-button plain size="large" @click="onExportExcel()"
+        >결과 다운로드</a-button
+      >
+    </div>
     <vx-card title="데이타입력" style="margin-top: 20px">
       <div style="display: flex; margin-bottom: 10px">
         <vs-input class="inputx" placeholder="Name" v-model="name" />
@@ -63,12 +81,18 @@
 
 <script>
 import firebase from "firebase";
+import UploadExcelComponent from "../components/UploadExcel/index.vue";
+import XLSX from "xlsx";
+import FileSaver from "file-saver";
+
+import VLazyImage from "v-lazy-image";
+
 export default {
   data() {
     return {
-      fileList : [],
+      fileList: [],
       key: "",
-      img : "",
+      img: "",
       name: "",
       age: "",
       address: "",
@@ -88,10 +112,10 @@ export default {
           dataIndex: "address",
           key: "address 1",
         },
-         {
+        {
           title: "img",
           key: "img",
-               scopedSlots: { customRender: "img" },
+          scopedSlots: { customRender: "img" },
         },
         {
           title: "action",
@@ -102,10 +126,78 @@ export default {
       data: [],
     };
   },
+  components: {
+    UploadExcelComponent,
+    VLazyImage,
+  },
   mounted() {
+    var _t = this.$cookies.get("ignoreAlert");
+    if (_t) {
+      //skip
+      console.log(_t);
+    } else {
+      alert("공지사항");
+      this.$cookies.config("7d");
+      this.$cookies.set("ignoreAlert", "T");
+    }
+
     this.onLoadData();
   },
   methods: {
+    onExportExcel() {
+      var date = new Date();
+      var e1 = [["이름", "나이", "주소", "이미지"]];
+      var wb = XLSX.utils.book_new();
+      this.data.forEach((item) => {
+        e1.push([item.name, item.age, item.address, item.img]);
+      });
+      var ws1 = XLSX.utils.aoa_to_sheet(e1);
+      XLSX.utils.book_append_sheet(
+        wb,
+        ws1,
+        "데이타"
+      ); /* get binary string as output */
+      var wbout = XLSX.write(wb, {
+        bookType: "xlsx",
+        bookSST: true,
+        type: "array",
+      });
+      try {
+        FileSaver.saveAs(
+          new Blob([wbout], {
+            type: "application/octet-stream",
+          }),
+          "인프런-교육-엑셀다운-" + date.getTime() + ".xlsx"
+        );
+      } catch (e) {
+        if (typeof console !== "undefined") console.log(e, wbout);
+      }
+      return wbout;
+    },
+
+    handleSuccess({ results, header }) {
+      this.data = [];
+      var self = this;
+      results.forEach((item) => {
+        var _t = {
+          name: item["name"],
+          age: item["age"],
+          address: item["address"],
+          img: item["img"],
+        };
+        self.data.push(_t);
+      });
+    },
+
+    beforeUploadExcel(file) {
+      const isLt1M = file.size / 1024 / 1024 < 10;
+      if (isLt1M) {
+        return true;
+      }
+      alert("화일 사이즈가 10M 이하인 화일만 허용합니다.");
+      return false;
+    },
+
     beforeUpload(file) {
       this.fileList = [...this.fileList, file];
       return false;
@@ -189,7 +281,7 @@ export default {
           name: self.name,
           age: self.age,
           address: self.address,
-          img : self.img
+          img: self.img,
         })
         .then(() => {
           self.onRefreshData();
@@ -272,7 +364,7 @@ export default {
             name: self.name,
             age: self.age,
             address: self.address,
-            img : self.img
+            img: self.img,
           })
           .then(function (mRef) {
             var _t = {
@@ -280,7 +372,7 @@ export default {
               name: self.name,
               age: self.age,
               address: self.address,
-              img : self.img
+              img: self.img,
             };
 
             _t["key"] = mRef.id;
@@ -291,3 +383,26 @@ export default {
   },
 };
 </script>
+
+<style>
+.lazy {
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 267px;
+  height: 173px;
+  background-position: center center;
+  object-fit: cover;
+  background-repeat: no-repeat;
+}
+
+.v-lazy-image {
+  filter: blur(10px);
+  transition: filter 0.7s;
+}
+.v-lazy-image-loaded {
+  filter: blur(0);
+}
+</style>
